@@ -5,11 +5,14 @@ import Navigation from "../components/navigation/Navigation";
 import Offers from "../components/offers/Offers";
 import axios from "axios";
 
-const Home = () => {
+const Home = ({ token, setUser}) => {
 
 const [data, setData] = useState({});
 const [isLoading, setisLoading] = useState(true);
 
+
+
+useEffect(() => {
 const fetchData = async () => {
   try {
     const response = await axios.get("https://lereacteur-vinted-api.herokuapp.com/offers");
@@ -19,8 +22,6 @@ const fetchData = async () => {
     console.log(error.message);
   }
 };
-//Remonter le useEffect pour le mettre directement autour de la creation de fetchData ?
-useEffect(() => {
   fetchData();
 }, []);
 
@@ -29,7 +30,7 @@ useEffect(() => {
   ) : (
 
     <>
-      <Header/>
+      <Header token={token} setUser={setUser}/>
       <Navigation/>
       <Hero/>
       <Offers offers={data.offers}/>

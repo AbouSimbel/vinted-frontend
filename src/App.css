@@ -7,3 +7,24 @@
   color: black;
   text-decoration: none;
 }
+
+.offer {
+  display: flex;
+  height: 665px;
+  width: 1340px;
+  padding: 30px;
+  justify-content: space-around;
+}
+
+.offer img {
+  width:450px;
+  height: 605px;
+  border: dashed 2px blue
+}
+
+.offer-resume {
+  width: 320px;
+  height: 525px;
+  border: dashed 2px blue;
+  padding: 40px;
+}

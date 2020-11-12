@@ -1,20 +1,28 @@
 import React from "react";
-import Connexion from "./Connexion";
-import SignUp from "./SignUp";
 import "./header.css"
-import SellArticles from "./SellArticles";
+import { Link } from "react-router-dom"
+import logo from "../../../src/assets/img/logo.png"
 
 
-const Header = () => {
+const Header = ({ token, setUser }) => {
   return(
     <div className="header container">
-      <div className="logo">LOGO VINTED</div>
-      <input type="search"/>
-      <div classNAme="connect">
-      <SignUp/>
-      <Connexion/>
-      </div>
-      <SellArticles/>
+      <img src={logo} alt=""/>
+        <input type="search"/>
+        {!token ? (
+          <div classNAme="connect">
+          <Link to="/signup"><button>S'inscrire</button></Link>
+          <Link to="/login"><button>Connection</button></Link>
+        </div>
+        ) : (
+          <button
+            onClick={() => {
+              setUser(null)
+            }}>
+            Se déconnecter
+          </button>
+        )
+      }
     </div>
   )
 }

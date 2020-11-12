@@ -1,12 +1,13 @@
+import axios from "axios";
 import React, { useState } from "react";
-import SignUp_Submit from "../components/signup_submit/SignUp_Submit";
+import { useHistory } from "react-router-dom";
 
-const SignUp = () => {
+const SignUp = ({ token, setUser }) => {
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const history = useHistory();
 
   const handleUsernameChange = event => {
     const value = event.target.value;
@@ -24,10 +25,26 @@ const SignUp = () => {
   }
 
   const handleSubmit = event => {
-    <SignUp_Submit/>
     event.preventDefault();
+
+      const fetchData = async () => {
+        try {
+          const response = await axios.post(
+            "https://lereacteur-vinted-api.herokuapp.com/user/signup", {
+              username: username,
+              password: password,
+              email: email
+            }
+          );
+          setUser(response.data.token);
+          history.push("/")
+        } catch (error) {
+          console.log(error.message);
+        }
+    }
+    fetchData();
   }
-console.log('username :' + username + "\n" + email + "\n" + password);
+
 
   return(
     <div className="signup">
@@ -53,7 +70,7 @@ console.log('username :' + username + "\n" + email + "\n" + password);
         value={password}
         onChange={handlePasswordChange}
         />
-        <input type="submit" value="S'inscrire"/>
+        <button type="submit">S'inscrire</button>
       </form>
     </div>
   )

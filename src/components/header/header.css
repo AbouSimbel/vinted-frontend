@@ -1,7 +1,14 @@
 .header {
   display: flex;
+  height: 59px;
+  align-items: center;
 }
 
 .connect {
   display: flex;
+}
+
+.header img {
+  width:78px;
+  height: 30px;
 }
