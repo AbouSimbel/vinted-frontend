@@ -1,0 +1,7 @@
+.navigation ul {
+  display: flex;
+}
+
+.navigation li {
+  margin: 10px
+}
