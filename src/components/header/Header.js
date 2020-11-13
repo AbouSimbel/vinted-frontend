@@ -3,7 +3,6 @@ import "./header.css"
 import { Link } from "react-router-dom"
 import logo from "../../../src/assets/img/logo.png"
 
-
 const Header = ({ token, setUser }) => {
   return(
     <div className="header container">

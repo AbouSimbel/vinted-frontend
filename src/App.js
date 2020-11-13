@@ -7,8 +7,6 @@ import SignUp from "./containers/SignUp";
 import Login from "./containers/Login";
 import Cookie from "js-cookie";
 
-
-
 function App() {
 
   const [token, setToken ] = useState(Cookie.get("userToken") || null);
@@ -23,27 +21,26 @@ console.log(token);
     }
   }
 
-
   return (
     <Router>
       <Switch>
+
         <Route path="/offer/:id">
           <Offer/>
         </Route>
 
         <Route path="/signup">
-          <SignUp token={token} setUser={setUser}/>
+          <SignUp setUser={setUser}/>
         </Route>
 
         <Route path="/login">
-          <Login/>
+          <Login setUser={setUser}/>
         </Route>
-
-
 
         <Route path="/">
           <Home token={token} setUser={setUser}/>
         </Route>
+
       </Switch>
     </Router>
       );

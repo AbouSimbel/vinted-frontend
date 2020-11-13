@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-const SignUp = ({ token, setUser }) => {
+const SignUp = ({ setUser }) => {
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -24,10 +24,8 @@ const SignUp = ({ token, setUser }) => {
     setPassword(value);
   }
 
-  const handleSubmit = event => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-
-      const fetchData = async () => {
         try {
           const response = await axios.post(
             "https://lereacteur-vinted-api.herokuapp.com/user/signup", {
@@ -41,8 +39,6 @@ const SignUp = ({ token, setUser }) => {
         } catch (error) {
           console.log(error.message);
         }
-    }
-    fetchData();
   }
 
 
