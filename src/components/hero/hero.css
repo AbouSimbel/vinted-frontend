@@ -1,10 +1,66 @@
 .hero {
+  display: flex;
+  align-items: center;
   background-image: url("../../../src/assets/img/bg/hero.jpg");
   width: 100%px;
   height: 455px;
   background-position: center;
   background-size: cover;
   margin-bottom: 30px;
+  position: relative;
+  margin-top: 1px;
+}
+
+.hero > div > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 400px;
+  height: 258px;
+  background-color: white;
+  border-radius: 3px;
+  padding: 34px;
+  box-sizing: border-box;
+  margin-left: 10px;
+}
+
+.hero p {
+  font-size: 34px;
+}
+
+.hero button {
+  width: 187px;
+  height: 44px;
+  background-color: #0AB1BA;
+  color: white;
+  border:none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: 'Maison neue';
+}
+
+.hero span {
+  color: #0AB1BA;
+  font-size: 14px;
+  font-family: 'Maison neue';
+  text-decoration: inherit;
+}
+
+.hero > div {
+  width:1280px;
+  margin: auto;
+}
+
+.hero img {
+  height: 80px;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  align-items: flex-end;
+}
+
+button:active {
+  outline-style: none;
 }
 
 

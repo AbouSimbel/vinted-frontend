@@ -10,8 +10,6 @@ const Home = ({ token, setUser}) => {
 const [data, setData] = useState({});
 const [isLoading, setisLoading] = useState(true);
 
-
-
 useEffect(() => {
 const fetchData = async () => {
   try {
@@ -28,7 +26,6 @@ const fetchData = async () => {
   return isLoading ? (
     <p className="loading-page">Page en cours de chargement</p>
   ) : (
-
     <>
       <Header token={token} setUser={setUser}/>
       <Navigation/>

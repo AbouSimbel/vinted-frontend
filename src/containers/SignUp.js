@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
+import Header from "../components/header/Header";
 
 const SignUp = ({ setUser }) => {
 
@@ -40,10 +41,11 @@ const SignUp = ({ setUser }) => {
           console.log(error.message);
         }
   }
-
-
   return(
+    <>
+    <Header/>
     <div className="signup">
+      <span>S'inscrire</span>
       <form onSubmit={handleSubmit} id="signupForm">
         <input
         placeholder="Nom d'utilisateur"
@@ -68,7 +70,9 @@ const SignUp = ({ setUser }) => {
         />
         <button type="submit">S'inscrire</button>
       </form>
+      <Link to="/login"><span></span><span classNAme="login">Tu as déjà un compte ? Connecte-toi !</span></Link>
     </div>
+    </>
   )
 }
 

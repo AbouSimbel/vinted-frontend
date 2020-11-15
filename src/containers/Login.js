@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
+import Header from "../components/header/Header"
 
 const Login = ({ setUser }) => {
 
@@ -31,11 +32,15 @@ const Login = ({ setUser }) => {
     } catch (error) {
       console.log(error.message);
     }
-
   }
 
   return(
-    <form onSubmit={handleSubmit}>
+    <>
+    <Header/>
+    <div className="signup">
+      <span>Se connecter</span>
+    <form onSubmit={handleSubmit} id="signupForm">
+
     <input
       type="email"
       placeholder="Adresse email"
@@ -52,6 +57,9 @@ const Login = ({ setUser }) => {
       <button
       type="submit">Se connecter</button>
       </form>
+      <Link to="/signup"><span></span><span classNAme="login">Pas encore de compte ? Inscrit-toi !</span></Link>
+      </div>
+      </>
   )
 }
 

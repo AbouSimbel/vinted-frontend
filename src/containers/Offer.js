@@ -3,9 +3,7 @@ import { useParams } from "react-router-dom"
 import axios from "axios";
 import Header from "../components/header/Header";
 
-
-
-const Offer = () => {
+const Offer = ({ token, setUser }) => {
 
   const { id } = useParams();
   const [data, setData] = useState();
@@ -25,20 +23,41 @@ const fetchData = async () => {
   fetchData();
 }, [id]);
 
-console.log(data);
-
   return isLoading ? (
     <p className="loading-page">Page en cours de chargement</p>
   ) : (
     <>
-    <Header/>
-    <div className="offer">
+    <Header token={token} setUser={setUser}/>
+    <div className="offer-bkg">
+    <div className="offer container">
       <img src={data.product_image.secure_url} alt=""/>
       <div className="offer-resume">
-      <div className="price">{data.product_price}</div>
+        <div className="price2">{data.product_price} €</div>
+      <div className="details">
+        {data.product_details.map((item, index) => {
+          const keys = Object.keys(item);
+          return(
+            <div>
+              <div>
+              {keys[0]}
+              </div>
+              <div className="details-values">
+              {item[keys[0]]}
+              </div>
+              </div>
+          )
+        })}
       </div>
-
-
+      <hr/>
+      <p className="offer-name">{data.product_name}</p>
+      <p>{data.product_description}</p>
+      <p className="owner">
+        <img src={data.owner.account.avatar.secure_url} alt=""/>
+        <span>{data.owner.account.username}</span>
+      </p>
+      <button className="buy">Acheter</button>
+      </div>
+    </div>
     </div>
     </>
   )

@@ -6,6 +6,9 @@ import Offer from "./containers/Offer"
 import SignUp from "./containers/SignUp";
 import Login from "./containers/Login";
 import Cookie from "js-cookie";
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+library.add(faSearch);
 
 function App() {
 
@@ -20,13 +23,12 @@ console.log(token);
       setToken(null);
     }
   }
-
   return (
     <Router>
       <Switch>
 
         <Route path="/offer/:id">
-          <Offer/>
+          <Offer token={token} setUser={setUser}/>
         </Route>
 
         <Route path="/signup">

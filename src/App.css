@@ -1,5 +1,20 @@
+@import "../src/assets/css/font.css";
+
+/* COMMON RULES */
+button {
+  outline: 0
+}
+
+input {
+  outline: 0
+}
+
+#root {
+  font-family: 'Maison neue';
+}
+
 .container {
-  width: 1280px;
+  max-width: 1280px;
   margin: auto;
 }
 
@@ -8,10 +23,12 @@
   text-decoration: none;
 }
 
+/* OFFER PAGE */
+
 .offer {
   display: flex;
   height: 665px;
-  width: 1340px;
+  max-width: 1340px;
   padding: 30px;
   justify-content: space-around;
 }
@@ -19,12 +36,131 @@
 .offer img {
   width:450px;
   height: 605px;
-  border: dashed 2px blue
 }
 
 .offer-resume {
-  width: 320px;
-  height: 525px;
-  border: dashed 2px blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 320px;
+  max-height: 525px;
   padding: 40px;
+  background-color: white;
+
+}
+
+.offer-bkg {
+  background-color: #EBEDEE;
+}
+
+.price2 {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  margin-bottom: 100px
+}
+
+.details > div {
+  display: flex;
+  color: #999999;
+  width:300px;
+  margin-top: 3px
+}
+
+.details > div > div {
+  width: 300px;
+  margin-top: 5px;
+}
+
+.details-values {
+  width: 300px;
+  color: #666666;
+  font-weight: bold;
+}
+
+.offer-resume p {
+  color: #999999
+}
+
+.buy {
+  border:none;
+  height: 36px;
+  background-color: #21ADB6;
+  color: white;
+  border-radius: 5px;
+  font-family: arial;
+  font-size: 16px;
+}
+
+.offer-name {
+  color: inherit;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.offer-resume .owner {
+  margin: 20px 0;
+}
+
+/* SIGN UP */
+
+.signup {
+  width: calc(100vw/3);
+  height: calc((100vw/3)*1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 60px;
+  margin: auto;
+}
+
+.signup :first-child {
+  font-size: 24px;
+}
+
+.signup :nth-child(3) {
+  color: #2DB1BA;
+  font-size: 12px;
+}
+
+#signupForm {
+  display: flex;
+  flex-direction: column;
+  max-width: 280px;
+  max-height: 500px;
+  margin: 30px 0;
+}
+
+#signupForm > input {
+  border: none;
+  height: 40px;
+  font-size: 15px;
+  width: 280px;
+  margin-top: 10px;
+  border-bottom: solid 1px rgb(255, 171, 171);
+  color: #b4b4b4
+}
+
+#signupForm button {
+  margin-top: 80px;
+  border: none;
+  width: 100%;
+  height: 48px;
+  background-color: #2DB1BA;
+  color: white;
+  font-size: 16px;
+  border-radius: 5px
+}
+
+#signupForm button:active {
+  border: inherit;
+}
+
+.login {
+  font-size: 12px;
 }
