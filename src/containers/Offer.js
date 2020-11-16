@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom"
 import axios from "axios";
 import Header from "../components/header/Header";
+import useravat from "../assets/img/bg/useravt.png"
 
 const Offer = ({ token, setUser }) => {
 
@@ -52,7 +53,7 @@ const fetchData = async () => {
       <p className="offer-name">{data.product_name}</p>
       <p>{data.product_description}</p>
       <p className="owner">
-        <img src={data.owner.account.avatar.secure_url} alt=""/>
+        <img src={data.owner.account.avatar ? data.owner.account.avatar.secure_url : useravat } alt=""/>
         <span>{data.owner.account.username}</span>
       </p>
       <button className="buy">Acheter</button>

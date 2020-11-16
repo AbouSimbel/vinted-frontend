@@ -26,6 +26,7 @@
 .offer-details img {
   width: 235px;
   height: 360px;
+  object-fit: cover;
 }
 
 .offer-details p {

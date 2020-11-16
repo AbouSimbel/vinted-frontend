@@ -1,14 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./offerCard.css"
+import useravat from "../../assets/img/bg/useravt.png"
 
 const OfferCard = ({ offer }) => {
 
+  const useravt = offer.owner.account.avatar;
+
+console.log(offer);
   return(
     <Link className="link" to={`/offer/${offer._id}`} key={offer._id}>
   <div className="offer-card">
     <div className="owner">
-      <img src={offer.owner.account.avatar.secure_url} alt=""/>
+      <img src={useravt ? (offer.owner.account.avatar.secure_url) : useravat} alt=""/>
+
       <span>{offer.owner.account.username}</span>
     </div>
     <div className="offer-details">

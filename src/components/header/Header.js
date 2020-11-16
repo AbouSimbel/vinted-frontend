@@ -26,7 +26,7 @@ const Header = ({ token, setUser }) => {
           </button>
         )
       }
-      <button className="sell">Vends tes articles</button>
+      <Link to="/publish"><button className="sell">Vends tes articles</button></Link>
     </div>
   )
 }

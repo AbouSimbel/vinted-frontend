@@ -1,0 +1,22 @@
+/* PUBLISH PAGE */
+
+.publish {
+  display: flex;
+  flex-direction: column;
+  border: solid 2px red;
+  width: 100%;
+}
+
+.publish form > div {
+  border: dashed 1px blue;
+}
+
+.publish  form > div > div{
+  display: flex;
+  width: 100%;
+}
+
+.publish form > div > div > div {
+  display: flex;
+  width: 50%;
+}
