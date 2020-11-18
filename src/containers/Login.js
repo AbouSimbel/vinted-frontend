@@ -15,8 +15,7 @@ const Login = ({ setUser, setUserId }) => {
   const fromPublish = location.state?.fromPublish ? true : false;
   const fromPayment = location.state?.fromPayment ? true : false;
 
-  //Desctructuring useLocation :
-  //if (location.state.title && location.state.amount)
+
   const title = location.state?.title ? location.state.title : null;
   const amount = location.state?.amount ? location.state.amount : null;
 
@@ -38,9 +37,10 @@ const Login = ({ setUser, setUserId }) => {
         password: password,
       }
       )
-      setUser(response.data.token, response.data._id);
 
-      fromPublish ? history.push("/publish") :
+        setUser(response.data.token, response.data._id);
+
+        fromPublish ? history.push("/publish") :
         fromPayment ? ( history.push({
           pathname: "/payment",
           state: {
@@ -48,9 +48,11 @@ const Login = ({ setUser, setUserId }) => {
             amount: amount,
           }
         })
-      ) : history.push("/");
+        ) : history.push("/");
 
     } catch (error) {
+
+      alert("Login failed")
       console.log(error.message);
     }
   }

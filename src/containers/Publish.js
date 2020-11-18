@@ -89,6 +89,7 @@ const Publish = ({ token, setUser, userId }) => {
         );
         history.push("/")
       } catch (error) {
+        alert("Publish failed")
         console.log(error.message);
       }
   }

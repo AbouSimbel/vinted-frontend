@@ -14,7 +14,7 @@ const Payment = ({ token, setUser }) => {
   const location = useLocation();
 
   const title = location.state.title;
-  const amount = Number(location.state.amount);
+  const amount = Number((location.state.amount).toFixed(2));
   const security_charges = Number((amount*5/100).toFixed(2));
   const shipping_fees = Number((amount*3/100 + 1.80).toFixed(2));
 
@@ -29,13 +29,13 @@ const Payment = ({ token, setUser }) => {
         <h3>Resume de la commande</h3>
         <div>
           <div>
-            <span>Commande</span> <span>{Number(amount)} EUR</span>
+            <span>Commande</span> <span>{Number(amount)} €</span>
           </div>
           <div>
-            <span>Frais de protection acheteur</span><span>{Number(security_charges)} EUR</span>
+            <span>Frais de protection acheteur</span><span>{Number(security_charges)} €</span>
           </div>
           <div>
-            <span>Frais de port</span><span>{Number(shipping_fees)} EUR</span>
+            <span>Frais de port</span><span>{Number(shipping_fees)} €</span>
           </div>
         </div>
       </div>
@@ -46,7 +46,7 @@ const Payment = ({ token, setUser }) => {
               Total
             </div>
           <div>
-            {Number(total)} EUR
+            {Number(total)} €
           </div>
         </div>
         <p>Il ne vous reste plus qu'une étape pour vous offrir {title} <br></br>
@@ -63,9 +63,10 @@ const Payment = ({ token, setUser }) => {
   ) : (
     <Redirect to={{
       pathname: "/login",
-      state: { fromPayment: true },
-      title,
-      amount,
+      state: { fromPayment: true,
+        title,
+        amount,
+      },
     }}
     />
   )

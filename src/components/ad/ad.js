@@ -7,7 +7,7 @@ const Ad = ({ title, handleTitleChange, description, handleDescriptionChange, br
     <div className="publish container">
       <form onSubmit={handleSubmit}>
       <div>
-        <h3>Vends ton article</h3>
+        <h3>Vends ton article : </h3>
       </div>
       <div>
         <div>
@@ -129,7 +129,7 @@ const Ad = ({ title, handleTitleChange, description, handleDescriptionChange, br
       <div>
         <div>
         </div>
-        <div>
+        <div className="exchange">
           <input type="checkbox"/><span>Je suis interessé par les échanges</span>
         </div>
       </div>

@@ -9,9 +9,10 @@ const CheckoutForm = ({ title, total, userId }) => {
   const elements = useElements();
   const stripe = useStripe();
   const [succeed, setSucceed] = useState(false);
-  const def_amount = total*100;
+  const def_amount = Number((total*100).toFixed(2));
 
   console.log(def_amount);
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -42,12 +43,29 @@ const CheckoutForm = ({ title, total, userId }) => {
     <div className="payment-area">
       {succeed ? (
         <>
-      <div className='succeeded'>Paiement validé !</div>
-      <span>Récapitulatif d'achat :</span>
-      <span>Date :   </span><span>{Date()}</span>
-      <span>Produit acheté : {title}</span>
-      <span>Pour un montant de : </span><span>{Number(def_amount/100)}</span><span> EUROS (frais compris)</span>
-      <Link to="/">Offrez-vous d'autres articles !</Link>
+        <div>
+          <div className='succeeded'>Paiement validé !</div>
+        </div>
+
+        <div>
+          <span>Récapitulatif d'achat :</span>
+        </div>
+
+        <div>
+          <span>Date :   </span> <span>{Date()}</span>
+        </div>
+
+        <div>
+          <span>Produit acheté : {title}</span>
+        </div>
+
+        <div>
+          <span>Pour un montant de : </span><span>{Number(def_amount/100)}</span><span> € (frais compris)</span>
+        </div>
+
+        <div className="go-home">
+          <Link to="/">Offrez-vous d'autres articles !</Link>
+        </div>
         </>
       ) : (
       <form onSubmit={handleSubmit}>
