@@ -6,8 +6,6 @@ import useravat from "../../assets/img/bg/useravt.png"
 const OfferCard = ({ offer }) => {
 
   const useravt = offer.owner.account.avatar;
-
-console.log(offer);
   return(
     <Link className="link" to={`/offer/${offer._id}`} key={offer._id}>
   <div className="offer-card">

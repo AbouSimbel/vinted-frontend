@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import axios from "axios";
 import Header from "../components/header/Header";
 import useravat from "../assets/img/bg/useravt.png"
 
-const Offer = ({ token, setUser }) => {
+const Offer = ({ token, setUser, userId }) => {
 
-  const { id } = useParams();
-  const [data, setData] = useState();
+  const { id } = useParams("");
+  const [data, setData] = useState(null);
   const [isLoading, setisLoading] = useState(true);
 
 useEffect(() => {
@@ -28,7 +28,7 @@ const fetchData = async () => {
     <p className="loading-page">Page en cours de chargement</p>
   ) : (
     <>
-    <Header token={token} setUser={setUser}/>
+    <Header token={token} setUser={setUser} userI={userId}/>
     <div className="offer-bkg">
     <div className="offer container">
       <img src={data.product_image.secure_url} alt=""/>
@@ -56,7 +56,17 @@ const fetchData = async () => {
         <img src={data.owner.account.avatar ? data.owner.account.avatar.secure_url : useravat } alt=""/>
         <span>{data.owner.account.username}</span>
       </p>
-      <button className="buy">Acheter</button>
+      <Link to={{
+              pathname: "/payment",
+              state: {
+                token: token,
+                title: data.product_name,
+                amount: data.product_price,
+                fromPayment: true,
+              },
+              }}
+              >
+                <button className="buy">Acheter</button></Link>
       </div>
     </div>
     </div>

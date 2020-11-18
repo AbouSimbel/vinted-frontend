@@ -1,14 +1,21 @@
 /* PUBLISH PAGE */
 
+.publish-bkg {
+  background-color: #e9e9e9;
+  height: 100vh;
+}
+
 .publish {
   display: flex;
   flex-direction: column;
-  border: solid 2px red;
   width: 100%;
 }
 
 .publish form > div {
-  border: dashed 1px blue;
+  margin: 20px 0;
+  background-color: white;
+  padding: 10px;
+  border: solid 1px #999999
 }
 
 .publish  form > div > div{
@@ -19,4 +26,14 @@
 .publish form > div > div > div {
   display: flex;
   width: 50%;
+  align-items: center;
 }
+
+.publish input {
+  height : 50px;
+  width: 100%;
+  border: none;
+  border-top: solid 1px #bbbbbb
+}
+
+

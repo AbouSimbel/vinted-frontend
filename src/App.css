@@ -166,6 +166,60 @@ input {
   font-size: 12px;
 }
 
+/* PAYMENT */
+
+.payment-bkg h3 {
+  margin-bottom: 30px;
+}
+
+.payment-bkg {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-color: #EAEDEF;
+  padding: 50px 0;
+}
+
+.payment-bkg > div {
+  width: 45%;
+  margin: 0 auto;
+  background-color: white;
+  margin-bottom: 1px;
+  padding: 20px;
+}
+
+.payment-bkg > div > div >div {
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
+}
+
+.payment-bkg p {
+  margin: 50px 0;
+}
+
+.payment-area {
+  width: 100%;
+  height: 150px;
+}
+
+.payment-area button {
+  width: 100%;
+  margin-top: 80px;
+  height: 40px;
+  background-color: #04BB6A;
+  color:white;
+  border:none;
+  border-radius: 5px
+}
+
+.payment-bkg h3 {
+  font-size: 14px;
+  color:#999999;
+}
+
+
 
 
 

@@ -35,7 +35,7 @@ const SignUp = ({ setUser }) => {
               email: email
             }
           );
-          setUser(response.data.token);
+          setUser(response.data.token, response.data._id);
           history.push("/")
         } catch (error) {
           console.log(error.message);

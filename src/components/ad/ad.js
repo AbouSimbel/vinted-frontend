@@ -2,6 +2,8 @@ import React from "react";
 
 const Ad = ({ title, handleTitleChange, description, handleDescriptionChange, brand, handleBrandChange, size, handleSizeChange, color, handleColorChange, condition, handleConditionChange, city, handleCityChange, price, handlePriceChange, handleFileChange, handleSubmit }) => {
   return(
+    <div className="publish-bkg">
+
     <div className="publish container">
       <form onSubmit={handleSubmit}>
       <div>
@@ -12,7 +14,7 @@ const Ad = ({ title, handleTitleChange, description, handleDescriptionChange, br
           <input
             type="file"
             onChange={handleFileChange}
-          />
+            />
         </div>
       </div>
     <div>
@@ -135,6 +137,7 @@ const Ad = ({ title, handleTitleChange, description, handleDescriptionChange, br
       <button type="submit">Ajouter</button>
       </form>
     </div>
+  </div>
   )
 }
 

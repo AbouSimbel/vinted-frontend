@@ -4,19 +4,21 @@ import Ad from "../components/ad/ad";
 import "../components/ad/ad.css";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { Redirect, useHistory } from "react-router-dom";
 
-const Publish = ({ token, setUser }) => {
+const Publish = ({ token, setUser, userId }) => {
 
-  const [title, setTitle] = useState();
-  const [description, setDescription] = useState();
-  const [brand, setBrand] = useState();
-  const [size, setSize] = useState();
-  const [color, setColor] = useState();
-  const [condition, setCondition] = useState();
-  const [city, setCity] = useState();
-  const [price, setPrice] = useState();
-  const [file, setFile] = useState();
+  const [title, setTitle] = useState(null);
+  const [description, setDescription] = useState(null);
+  const [brand, setBrand] = useState(null);
+  const [size, setSize] = useState(null);
+  const [color, setColor] = useState(null);
+  const [condition, setCondition] = useState(null);
+  const [city, setCity] = useState(null);
+  const [price, setPrice] = useState(0);
+  const [file, setFile] = useState(null);
   const token2 = Cookies.get("userToken");
+  const history = useHistory();
 
   const handleTitleChange = (event) => {
     const value = event.target.value;
@@ -85,35 +87,42 @@ const Publish = ({ token, setUser }) => {
               }
             }
         );
+        history.push("/")
       } catch (error) {
         console.log(error.message);
       }
   }
-  return (
-    <>
-    <Header token={token} setUser={setUser}/>
-    <Ad
-    title={title}
-    handleTitleChange={handleTitleChange}
-    description={description}
-    handleDescriptionChange={handleDescriptionChange}
-    brand={brand}
-    handleBrandChange={handleBrandChange}
-    size={size}
-    handleSizeChange={handleSizeChange}
-    color={color}
-    handleColorChange={handleColorChange}
-    condition={condition}
-    handleConditionChange={handleConditionChange}
-    city={city}
-    handleCityChange={handleCityChange}
-    price={price}
-    handlePriceChange={handlePriceChange}
-    handleFileChange={handleFileChange}
-    handleSubmit={handleSubmit}
-    />
-    </>
-  )
-}
+  return token ? (
+      <>
+      <Header token={token} setUser={setUser} userId={userId}/>
+      <Ad
+      title={title}
+      handleTitleChange={handleTitleChange}
+      description={description}
+      handleDescriptionChange={handleDescriptionChange}
+      brand={brand}
+      handleBrandChange={handleBrandChange}
+      size={size}
+      handleSizeChange={handleSizeChange}
+      color={color}
+      handleColorChange={handleColorChange}
+      condition={condition}
+      handleConditionChange={handleConditionChange}
+      city={city}
+      handleCityChange={handleCityChange}
+      price={price}
+      handlePriceChange={handlePriceChange}
+      handleFileChange={handleFileChange}
+      handleSubmit={handleSubmit}
+      />
+      </>
+      ) : (
+        <Redirect to={{
+          pathname: "/login",
+          state: { fromPublish: true },
+        }}
+        />
+      )
+      }
 
 export default Publish;

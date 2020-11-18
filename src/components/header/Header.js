@@ -20,7 +20,7 @@ const Header = ({ token, setUser }) => {
         ) : (
           <button
             onClick={() => {
-              setUser(null)
+              setUser(null, null)
             }}>
             Se déconnecter
           </button>

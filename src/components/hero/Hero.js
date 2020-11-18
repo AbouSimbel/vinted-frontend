@@ -9,7 +9,7 @@ const Hero = () => {
       <div>
         <div>
           <p>Prêts à faire du tri dans vos placards ?</p>
-          <button>Commencer à vendre</button>
+          <Link to="/publish"><button>Commencer à vendre</button></Link>
           <Link><span>Découvrir comment ça marche</span></Link>
         </div>
         <img src={tear} alt=""/>

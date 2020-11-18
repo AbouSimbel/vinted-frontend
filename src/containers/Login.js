@@ -1,13 +1,24 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory, Link, useLocation } from "react-router-dom";
 import Header from "../components/header/Header"
 
-const Login = ({ setUser }) => {
+const Login = ({ setUser, setUserId }) => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
+  const location = useLocation();
+
+
+  // Optional chaining (replace my previous if-condition)
+  const fromPublish = location.state?.fromPublish ? true : false;
+  const fromPayment = location.state?.fromPayment ? true : false;
+
+  //Desctructuring useLocation :
+  //if (location.state.title && location.state.amount)
+  const title = location.state?.title ? location.state.title : null;
+  const amount = location.state?.amount ? location.state.amount : null;
 
   const handlePasswordChange = (event) => {
     const value = event.target.value;
@@ -27,13 +38,22 @@ const Login = ({ setUser }) => {
         password: password,
       }
       )
-      setUser(response.data.token);
-      history.push("/")
+      setUser(response.data.token, response.data._id);
+
+      fromPublish ? history.push("/publish") :
+        fromPayment ? ( history.push({
+          pathname: "/payment",
+          state: {
+            title: title,
+            amount: amount,
+          }
+        })
+      ) : history.push("/");
+
     } catch (error) {
       console.log(error.message);
     }
   }
-
   return(
     <>
     <Header/>
@@ -57,7 +77,7 @@ const Login = ({ setUser }) => {
       <button
       type="submit">Se connecter</button>
       </form>
-      <Link to="/signup"><span></span><span classNAme="login">Pas encore de compte ? Inscrit-toi !</span></Link>
+      <Link to="/signup"><span></span><span className="login">Pas encore de compte ? Inscrit-toi !</span></Link>
       </div>
       </>
   )

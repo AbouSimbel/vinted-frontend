@@ -5,7 +5,7 @@ import Navigation from "../components/navigation/Navigation";
 import Offers from "../components/offers/Offers";
 import axios from "axios";
 
-const Home = ({ token, setUser}) => {
+const Home = ({ token, setUser, userId }) => {
 
 const [data, setData] = useState({});
 const [isLoading, setisLoading] = useState(true);
@@ -27,7 +27,7 @@ const fetchData = async () => {
     <p className="loading-page">Page en cours de chargement</p>
   ) : (
     <>
-      <Header token={token} setUser={setUser}/>
+      <Header token={token} setUser={setUser} userId={userId}/>
       <Navigation/>
       <Hero/>
       <Offers offers={data.offers}/>
